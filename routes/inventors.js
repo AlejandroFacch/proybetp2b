@@ -1,10 +1,17 @@
 let express = require('express');
 let router = express.Router();
 const dataInventor = require('./../data/Inventor');
+const jwt = require("jsonwebtoken");
+const ejwt = require("express-jwt");
+const secret = require("./secret");
+
 
 /* GET listado de inventores */
-router.get('/', async function(req, res, next) {
-  res.json(await dataInventor.getAllInventors());
+router.get('/', ejwt(secret), async function(req, res, next) {
+
+    res.json(await dataInventor.getAllInventors())
+    
+  
 });
 
 // GET de un inventor

@@ -1,0 +1,1 @@
+module.exports = ({ secret: 'secretkey', algorithms: ['HS256']});
